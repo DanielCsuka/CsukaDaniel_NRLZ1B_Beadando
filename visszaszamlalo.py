@@ -6,10 +6,12 @@ from tkinter import messagebox
 ablak = Tk()
 
 # ablak méretének beállítása
-ablak.geometry("250x200")
+ablak.geometry('270x200')
+ablak.minsize(width=200, height=190)
+ablak.maxsize(width=350, height=300)
 
 # ablak nevének beállítása
-ablak.title("Visszaszámláló")
+ablak.title('Visszaszámláló')
 
 # változók beállítása
 perc = StringVar()
@@ -40,9 +42,8 @@ def bevitel():
         # a felhasználótól kapott adatokat a temp-ben tároljuk
         temp = int(perc.get()) * 60 + int(masodperc.get())
     except (ValueError):
-            messagebox.showinfo('Hiba!', 'Számot írj be!')
+            messagebox.showinfo('Hiba!', 'Számot írj be!',)
     while temp > -1:
-        # a megkapott adadtokat elosztjuk 60-al
         percek, mpk = divmod(temp, 60)
 
         # formátum
@@ -53,7 +54,7 @@ def bevitel():
         ablak.update()
         time.sleep(1)
 
-        # ha eléri a 0-t kiírjuk, hogy lejért az idő
+        # ha eléri a 0-t kiírjuk, hogy lejárt az idő
         if (temp == 0):
             messagebox.showinfo('Visszaszámláló', 'Lejárt az idő!')
 
