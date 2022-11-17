@@ -61,11 +61,24 @@ def bevitel():
         # temp értéke minden másodpercben egyet csökken
         temp -= 1
 
+def informacio():
+    messagebox.showinfo('Információ', 'Visszaszámláló feladat: Grafikus felületen a felhasználó megadhat percet '
+                                      'és/vagy másodpercet, ahonnan a program vissza fog számolni és amint ez letelt kiírja, hogy lejárt az idő.')
+
 # gombok
 inditas_gomb = Button(ablak, text='Visszaszámlálás indítása', bd='5', command=bevitel)
 inditas_gomb.place(x=70, y=120)
 kilepes_gomb = Button(ablak, text='Kilépés', bd='5', command=ablak.destroy)
 kilepes_gomb.place(x=70, y=150)
+
+# menüsor
+menusor = Menu(ablak)
+menu = Menu(menusor)
+menu.add_command(label='Információ', command=informacio)
+menu.add_command(label='Kilépés', command=ablak.destroy)
+menusor.add_cascade(label='Menü', menu=menu)
+
+ablak.config(menu=menusor)
 
 # végtelen loop
 ablak.mainloop()
