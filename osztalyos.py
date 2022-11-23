@@ -16,7 +16,7 @@ class adatok():
  # hány napja született függvény, a random dátumból kivonja a mostani dátumot
 def hany_napja_szuletett():
     randomdatum = date(year=randomev, month=randomho, day=randomnap)
-    aktualdatum = date(year=2022, month=11, day=5)
+    aktualdatum = date(year=2022, month=11, day=24)
     napok = randomdatum - aktualdatum
     return napok
 
